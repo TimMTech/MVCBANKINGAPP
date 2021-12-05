@@ -3,7 +3,7 @@ import os
 
 class Accounts:
     def __init__(self):
-        self.path = '/Users/tim/PycharmProjects/MVCBANKINGAPP'
+        self.path = '/Users/tim/PycharmProjects/MVCBANKINGAPP/Accounts'
         self.accounts = os.listdir(self.path)
 
     @staticmethod
@@ -21,7 +21,7 @@ class Accounts:
             f.write(password)
 
     @staticmethod
-    def file_read(email, password):
+    def login_check(email, password):
         path = '/Users/tim/PycharmProjects/MVCBANKINGAPP/Accounts/'
         file_list = os.listdir(path)
         for i in file_list:

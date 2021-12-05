@@ -55,7 +55,7 @@ class Login(tk.Frame):
             if entries == "":
                 messagebox.showerror("Error", "All Fields Are Required", parent=self.root)
                 return
-            if self.database.file_read(self.email.get(), self.txt_password.get()):
+            if self.database.login_check(self.email.get(), self.txt_password.get()):
                 messagebox.showinfo("Success", "Logged In", parent=self.root)
                 self.master.switch_frame("AccountPage")
                 return
