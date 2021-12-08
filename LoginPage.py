@@ -1,5 +1,5 @@
 from tkinter import Frame, Label, Entry, Button
-from tkinter import messagebox
+from tkinter import messagebox, StringVar
 from PIL import Image, ImageTk
 from Observables import LARGE_FONT, MEDIUM_FONT
 import tkinter as tk
@@ -7,6 +7,7 @@ import Database
 
 
 class Login(tk.Frame):
+
     def __init__(self, master):
         tk.Frame.__init__(self, master)
         self.root = master
@@ -31,13 +32,11 @@ class Login(tk.Frame):
         Label(frame2, text="LOGIN HERE", font=LARGE_FONT, bg='white', fg='green').place(x=80, y=0)
 
         # ------------------------Row 1
-
         Label(frame2, text="EMAIL ADDRESS", font=MEDIUM_FONT, bg='white', fg='gray').place(x=50, y=150)
         self.email = Entry(frame2, font=MEDIUM_FONT, bg='lightgray')
         self.email.place(x=50, y=180, width=200)
 
         # -------------------------Row 2
-
         Label(frame2, text="Password", font=MEDIUM_FONT, bg='white', fg='gray').place(x=50, y=250)
         self.txt_password = Entry(frame2, font=MEDIUM_FONT, bg='lightgray', show='*')
         self.txt_password.place(x=50, y=280, width=200)
@@ -61,3 +60,8 @@ class Login(tk.Frame):
                 return
             messagebox.showinfo("Error", "Email or Password Does Not Match", parent=self.root)
             return
+
+
+
+
+

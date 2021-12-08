@@ -1,4 +1,4 @@
-from tkinter import Label, Frame, Entry, Button
+from tkinter import Label, Frame, Entry, Button, StringVar
 from tkinter import IntVar, Checkbutton, CENTER, EXCEPTION
 from tkinter import ttk, messagebox
 from PIL import Image, ImageTk
@@ -8,6 +8,7 @@ import Database
 
 
 class Register(tk.Frame):
+
     def __init__(self, master):
         tk.Frame.__init__(self, master)
         self.root = master
@@ -15,7 +16,6 @@ class Register(tk.Frame):
         self.root.title("Register Page")
         self.root.geometry("1250x700+0+0")
         self.root.config(bg='white')
-
         # ===BG Image=====
         self.bg = ImageTk.PhotoImage(file="Images/background.png")
         Label(self.root, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
@@ -37,7 +37,6 @@ class Register(tk.Frame):
         Label(frame1, text="REGISTER HERE", font=LARGE_FONT, bg='white', fg='green').place(x=50, y=0)
 
         # ----------------------Row 1
-
         Label(frame1, text="First Name", font=MEDIUM_FONT, bg='white', fg='gray').place(x=50, y=50)
         self.txt_firstname = Entry(frame1, font=MEDIUM_FONT, bg='lightgray')
         self.txt_firstname.place(x=50, y=80, width=200)
@@ -125,3 +124,4 @@ class Register(tk.Frame):
 
         except EXCEPTION as es:
             messagebox.showerror("Error", f"Error due to: {str(es)}", parent=self.root)
+

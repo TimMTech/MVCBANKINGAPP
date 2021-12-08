@@ -5,13 +5,6 @@ from Observables import LARGE_FONT, MEDIUM_FONT
 import tkinter as tk
 import Database
 
-"""
-Finish the rest of AccountDash.  
-Create Personal Details
-Create Deposit
-Create Withdraw
-"""
-
 
 class AccountDash(tk.Frame):
     def __init__(self, master):
@@ -42,7 +35,7 @@ class AccountDash(tk.Frame):
 
         # =========Options==============
         Button(frame3, text="Personal Details", bd=0, cursor='hand2',
-               command=lambda: self.personalDetails()).place(x=60, y=160, width=180)
+               command=lambda: self.master.switch_frame("PersonalPage")).place(x=60, y=160, width=180)
         Button(frame3, text="Deposit", bd=0, cursor='hand2',
                command='').place(x=60, y=240, width=180)
         Button(frame3, text="Withdraw", bd=0, cursor='hand2',
@@ -53,6 +46,3 @@ class AccountDash(tk.Frame):
     def successLogout(self):
         messagebox.showinfo("Success", "Logged Out Successfully", parent=self.root)
         self.master.switch_frame("LoginPage")
-
-    def personalDetails(self):
-        pass

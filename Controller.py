@@ -1,12 +1,18 @@
 import tkinter as tk
+
+import Database
+
+
 from RegisterPage import Register
 from LoginPage import Login
 from AccountPage import AccountDash
+from PersonalPage import PersonalDetails
 
 pages = {
     "RegisterPage": Register,
     "LoginPage": Login,
-    "AccountPage": AccountDash
+    "AccountPage": AccountDash,
+    "PersonalPage": PersonalDetails
 }
 
 
@@ -15,6 +21,7 @@ class Controller(tk.Tk):
         tk.Tk.__init__(self)
         self._frame = None
         self.switch_frame("RegisterPage")
+        self.database = Database.Accounts()
 
     def switch_frame(self, page_name):
         cls = pages[page_name]
