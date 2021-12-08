@@ -1,5 +1,5 @@
 from tkinter import Frame, Label, Entry, Button
-from tkinter import messagebox, StringVar
+from tkinter import messagebox
 from PIL import Image, ImageTk
 from Observables import LARGE_FONT, MEDIUM_FONT
 import tkinter as tk
@@ -60,8 +60,3 @@ class Login(tk.Frame):
                 return
             messagebox.showinfo("Error", "Email or Password Does Not Match", parent=self.root)
             return
-
-
-
-
-

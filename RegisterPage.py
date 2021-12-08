@@ -1,4 +1,4 @@
-from tkinter import Label, Frame, Entry, Button, StringVar
+from tkinter import Label, Frame, Entry, Button
 from tkinter import IntVar, Checkbutton, CENTER, EXCEPTION
 from tkinter import ttk, messagebox
 from PIL import Image, ImageTk
@@ -124,4 +124,3 @@ class Register(tk.Frame):
 
         except EXCEPTION as es:
             messagebox.showerror("Error", f"Error due to: {str(es)}", parent=self.root)
-
