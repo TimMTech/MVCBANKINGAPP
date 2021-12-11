@@ -1,27 +1,39 @@
 import tkinter as tk
-
-import Database
-
-
 from RegisterPage import Register
 from LoginPage import Login
 from AccountPage import AccountDash
 from PersonalPage import PersonalDetails
+from DepositPage import Deposit
+from WithdrawPage import Withdraw
 
 pages = {
     "RegisterPage": Register,
     "LoginPage": Login,
     "AccountPage": AccountDash,
-    "PersonalPage": PersonalDetails
+    "PersonalPage": PersonalDetails,
+    "DepositPage": Deposit,
+    "WithdrawPage": Withdraw
 }
 
 
 class Controller(tk.Tk):
-    def __init__(self):
-        tk.Tk.__init__(self)
+    def __init__(self, *args, **kwargs):
+        tk.Tk.__init__(self, *args, **kwargs)
+        self.data = {"firstname": tk.StringVar(),
+                     "lastname": tk.StringVar(),
+                     "contact": tk.StringVar(),
+                     "email": tk.StringVar(),
+                     "question": tk.StringVar(),
+                     "answer": tk.StringVar(),
+                     "password": tk.StringVar(),
+                     "confirmpassword": tk.StringVar(),
+                     "balance": '0',
+                     "deposit": tk.StringVar(),
+                     "withdraw": tk.StringVar()
+                     }
+        self.global_vars = ''
         self._frame = None
         self.switch_frame("RegisterPage")
-        self.database = Database.Accounts()
 
     def switch_frame(self, page_name):
         cls = pages[page_name]

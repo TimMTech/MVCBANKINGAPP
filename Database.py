@@ -2,9 +2,19 @@ import os
 
 
 class Accounts:
-    def __init__(self):
+    def __init__(self, firstname, lastname, contact, email, question, answer, password):
         self.path = '/Users/tim/PycharmProjects/MVCBANKINGAPP/Accounts'
-        self.accounts = os.listdir(self.path)
+        self.filename = firstname + '.txt'
+        self.complete_name = os.path.join(self.path, self.filename)
+        with open(self.complete_name, 'w+') as self.f:
+            self.f.write(firstname + '\n')
+            self.f.write(lastname + '\n')
+            self.f.write(contact + '\n')
+            self.f.write(email + '\n')
+            self.f.write(question + '\n')
+            self.f.write(answer + '\n')
+            self.f.write(password + '\n')
+
 
     @staticmethod
     def file_save(firstname, lastname, contact, email, question, answer, password):
@@ -47,12 +57,19 @@ class Accounts:
                             if email and password in lines:
                                 print("Found in %s !" % i)
                                 with open(path + i, 'r') as nf:
-                                    details = nf.read()
-                                    account_details = details.split()
-                                    firstname = account_details[0]
-                                    lastname = account_details[1]
-                                    contact = account_details[2]
-                                    email = account_details[3]
-                                    return firstname, lastname, contact, email
+                                    line = nf.readlines()[:4]
+                                    split = line[0].strip().split(' ')
+                                    split1 = line[1].strip().split(' ')
+                                    split2 = line[2].strip().split(' ')
+                                    split3 = line[3].strip().split(' ')
+                                    firstname = [str(x) for x in split]
+                                    lastname = [str(x) for x in split1]
+                                    contact = [str(x) for x in split2]
+                                    email = [str(x) for x in split3]
+                                    print(firstname)
+                                    print(lastname)
+                                    print(contact)
+                                    print(email)
+
                 except Exception as es:
                     print("Error", f'Error due to: str({es}')
