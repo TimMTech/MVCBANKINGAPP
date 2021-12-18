@@ -99,5 +99,3 @@ class Login(tk.Frame):
     def refresh(self):
         self.txt_email_entry.delete(0, "end")
         self.txt_password_entry.delete(0, "end")
-
-

@@ -1,7 +1,3 @@
-"""
-FIND A WAY TO SHORTEN THE UPDATE BALANCE FILE HANDLER!!!!!
-"""
-
 from tkinter import Frame, Label, Button, Entry, messagebox, EXCEPTION
 from PIL import Image, ImageTk
 from Observables import LARGE_FONT, MEDIUM_FONT
@@ -112,4 +108,3 @@ class Deposit(tk.Frame):
 
     def refresh(self):
         self.amount_entry.delete(0, "end")
-
